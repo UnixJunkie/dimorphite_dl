@@ -74,13 +74,13 @@ def main(params=None):
     parser = ArgParseFuncs.get_args()
     args = vars(parser.parse_args())
 
-    if not args["silent"]:
-        print_header()
-
     # Add in any parameters in params.
     if params is not None:
         for k, v in params.items():
             args[k] = v
+
+    if not args["silent"]:
+        print_header()            
 
     # If being run from the command line, print out all parameters.
     if __name__ == "__main__":
